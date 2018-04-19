@@ -5,12 +5,16 @@
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
 # Forked by MilesBreslin
+# Source:
 ##########
 
 # Default preset
 $tweaks = @(
 	### Require administrator privileges ###
 	"RequireAdmin",
+
+
+	"PromptForWinAeroTweaker",		# A link to download a program to configure these options and more will appear
 
 	### Privacy Tweaks ###
 	"DisableTelemetry",		# "EnableTelemetry",
@@ -2510,6 +2514,11 @@ Function InstallAHKScript {
 	Write-Host "Copying Base.ahk"
 	Copy-Item "Base.ahk" %appdata%"\AHK\Install.ahk"
 	%appdata%"\AHK\Install.ahk"
+}
+
+
+Function PromptForWinAeroTweaker {
+	(New-Object -Com Shell.Application).Open("http://winaero.com/comment.php?comment.news.1836")
 }
 
 
