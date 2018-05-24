@@ -4,11 +4,17 @@
 # Version: development
 # Source: https://github.com/Disassembler0/Win10-Initial-Setup-Script
 ##########
+# Forked by MilesBreslin
+# Source:
+##########
 
 # Default preset
 $tweaks = @(
 	### Require administrator privileges ###
 	"RequireAdmin",
+
+
+	"PromptForWinAeroTweaker",		# A link to download a program to configure these options and more will appear
 
 	### Privacy Tweaks ###
 	"DisableTelemetry",             # "EnableTelemetry",
@@ -31,134 +37,211 @@ $tweaks = @(
 	"DisableWAPPush",               # "EnableWAPPush",
 
 	### Security Tweaks ###
-	# "SetUACLow",                  # "SetUACHigh",
-	# "EnableSharingMappedDrives",  # "DisableSharingMappedDrives",
-	"DisableAdminShares",           # "EnableAdminShares",
-	# "DisableSMB1",                # "EnableSMB1",
-	# "DisableSMBServer",           # "EnableSMBServer",
-	# "DisableLLMNR",               # "EnableLLMNR",
-	"SetCurrentNetworkPrivate",     # "SetCurrentNetworkPublic",
-	# "SetUnknownNetworksPrivate",  # "SetUnknownNetworksPublic",
-	# "DisableNetDevicesAutoInst",  # "EnableNetDevicesAutoInst",
-	# "EnableCtrldFolderAccess",    # "DisableCtrldFolderAccess",
-	# "DisableFirewall",            # "EnableFirewall",
-	# "DisableDefender",            # "EnableDefender",
-	# "DisableDefenderCloud",       # "EnableDefenderCloud",
-	"EnableF8BootMenu",             # "DisableF8BootMenu",
-	"SetDEPOptOut",                 # "SetDEPOptIn",
-	# "EnableCIMemoryIntegrity",    # "DisableCIMemoryIntegrity",
-	"DisableScriptHost",            # "EnableScriptHost",
-	"EnableDotNetStrongCrypto",     # "DisableDotNetStrongCrypto",
-	# "EnableMeltdownCompatFlag"    # "DisableMeltdownCompatFlag",
+	# "SetUACLow",			# "SetUACHigh",
+	# "EnableSharingMappedDrives",	# "DisableSharingMappedDrives",
+	"DisableAdminShares",		# "EnableAdminShares",
+	"DisableSMB1",			# "EnableSMB1",
+	# "DisableSMBServer",		# "EnableSMBServer",
+	# "DisableLLMNR",		# "EnableLLMNR",
+	"SetCurrentNetworkPrivate",	# "SetCurrentNetworkPublic",
+	# "SetUnknownNetworksPrivate",	# "SetUnknownNetworksPublic",
+	# "DisableNetDevicesAutoInst",	# "EnableNetDevicesAutoInst",
+	# "EnableCtrldFolderAccess",	# "DisableCtrldFolderAccess",
+	# "DisableFirewall",		# "EnableFirewall",
+	"DisableDefender",		# "EnableDefender",
+	"DisableDefenderCloud",		# "EnableDefenderCloud",
+	"EnableF8BootMenu",		# "DisableF8BootMenu",
+	"SetDEPOptOut",			# "SetDEPOptIn",
+	# "EnableCIMemoryIntegrity",	# "DisableCIMemoryIntegrity",
+	"DisableScriptHost",		# "EnableScriptHost",
+	"EnableDotNetStrongCrypto",	# "DisableDotNetStrongCrypto",
+	# "EnableMeltdownCompatFlag"	# "DisableMeltdownCompatFlag",
 
 	### Service Tweaks ###
-	# "DisableUpdateMSRT",          # "EnableUpdateMSRT",
-	# "DisableUpdateDriver",        # "EnableUpdateDriver",
-	"DisableUpdateRestart",         # "EnableUpdateRestart",
-	# "DisableHomeGroups",          # "EnableHomeGroups",
-	"DisableSharedExperiences",     # "EnableSharedExperiences",
-	"DisableRemoteAssistance",      # "EnableRemoteAssistance",
-	"EnableRemoteDesktop",          # "DisableRemoteDesktop",
-	"DisableAutoplay",              # "EnableAutoplay",
-	"DisableAutorun",               # "EnableAutorun",
-	# "EnableStorageSense",         # "DisableStorageSense",
-	# "DisableDefragmentation",     # "EnableDefragmentation",
-	# "DisableSuperfetch",          # "EnableSuperfetch",
-	# "DisableIndexing",            # "EnableIndexing",
-	# "SetBIOSTimeUTC",             # "SetBIOSTimeLocal",
-	# "EnableHibernation",          # "DisableHibernation",
-	# "DisableSleepButton",         # "EnableSleepButton",
-	# "DisableSleepTimeout",        # "EnableSleepTimeout",
-	# "DisableFastStartup",         # "EnableFastStartup",
+	"DisableUpdateMSRT",		# "EnableUpdateMSRT",
+	# "DisableUpdateDriver",	# "EnableUpdateDriver",
+	"DisableUpdateRestart",		# "EnableUpdateRestart",
+	"DisableHomeGroups",		# "EnableHomeGroups",
+	"DisableSharedExperiences",	# "EnableSharedExperiences",
+	"DisableRemoteAssistance",	# "EnableRemoteAssistance",
+	"EnableRemoteDesktop",		# "DisableRemoteDesktop",
+	"DisableAutoplay",		# "EnableAutoplay",
+	"DisableAutorun",		# "EnableAutorun",
+	"EnableStorageSense",		# "DisableStorageSense",
+	# "DisableDefragmentation",	# "EnableDefragmentation",
+	# "DisableSuperfetch",		# "EnableSuperfetch",
+	# "DisableIndexing",		# "EnableIndexing",
+	"SetBIOSTimeUTC",		# "SetBIOSTimeLocal",
+	# "EnableHibernation",		# "DisableHibernation",
+	# "DisableSleepButton",		# "EnableSleepButton",
+	# "DisableSleepTimeout",	# "EnableSleepTimeout",
+	# "DisableFastStartup",		# "EnableFastStartup",
 
 	### UI Tweaks ###
-	"DisableActionCenter",          # "EnableActionCenter",
-	"HideAccountProtectionWarn",    # "ShowAccountProtectionWarn",
-	"DisableLockScreen",            # "EnableLockScreen",
-	# "DisableLockScreenRS1",       # "EnableLockScreenRS1",
-	"HideNetworkFromLockScreen",    # "ShowNetworkOnLockScreen",
-	"HideShutdownFromLockScreen",   # "ShowShutdownOnLockScreen",
-	"DisableStickyKeys",            # "EnableStickyKeys",
-	"ShowTaskManagerDetails"        # "HideTaskManagerDetails",
-	"ShowFileOperationsDetails",    # "HideFileOperationsDetails",
-	# "EnableFileDeleteConfirm",    # "DisableFileDeleteConfirm",
-	"HideTaskbarSearch",            # "ShowTaskbarSearchIcon",      # "ShowTaskbarSearchBox",
-	"HideTaskView",                 # "ShowTaskView",
-	"ShowSmallTaskbarIcons",        # "ShowLargeTaskbarIcons",
-	"SetTaskbarCombineWhenFull",    # "SetTaskbarCombineNever",     # "SetTaskbarCombineAlways",
-	"HideTaskbarPeopleIcon",        # "ShowTaskbarPeopleIcon",
-	"ShowTrayIcons",                # "HideTrayIcons",
-	"DisableSearchAppInStore",      # "EnableSearchAppInStore",
-	"DisableNewAppPrompt",          # "EnableNewAppPrompt",
-	# "SetControlPanelSmallIcons",  # "SetControlPanelLargeIcons",  # "SetControlPanelCategories",
-	"SetVisualFXPerformance",       # "SetVisualFXAppearance",
-	# "AddENKeyboard",              # "RemoveENKeyboard",
-	# "EnableNumlock",              # "DisableNumlock",
+	"DisableActionCenter",		# "EnableActionCenter",
+	"DisableLockScreen",		# "EnableLockScreen",
+	# "DisableLockScreenRS1",	# "EnableLockScreenRS1",
+	"HideNetworkFromLockScreen",	# "ShowNetworkOnLockScreen",
+	"HideShutdownFromLockScreen",	# "ShowShutdownOnLockScreen",
+	"DisableStickyKeys",		# "EnableStickyKeys",
+	"ShowTaskManagerDetails"	# "HideTaskManagerDetails",
+	"ShowFileOperationsDetails",	# "HideFileOperationsDetails",
+	# "EnableFileDeleteConfirm",	# "DisableFileDeleteConfirm",
+	"HideTaskbarSearch",		# "ShowTaskbarSearchIcon",	# "ShowTaskbarSearchBox",
+	"HideTaskView",			# "ShowTaskView",
+	"ShowSmallTaskbarIcons",	# "ShowLargeTaskbarIcons",
+	"SetTaskbarCombineWhenFull",	# "SetTaskbarCombineNever",	# "SetTaskbarCombineAlways",
+	"HideTaskbarPeopleIcon",	# "ShowTaskbarPeopleIcon",
+	"ShowTrayIcons",		# "HideTrayIcons",
+	"DisableSearchAppInStore",	# "EnableSearchAppInStore",
+	"DisableNewAppPrompt",		# "EnableNewAppPrompt",
+	# "SetControlPanelSmallIcons",	# "SetControlPanelLargeIcons",	# "SetControlPanelCategories",
+	"SetVisualFXPerformance",	# "SetVisualFXAppearance",
+	# "AddENKeyboard",		# "RemoveENKeyboard",
+	# "EnableNumlock",		# "DisableNumlock",
 
 	### Explorer UI Tweaks ###
-	"ShowKnownExtensions",          # "HideKnownExtensions",
-	"ShowHiddenFiles",              # "HideHiddenFiles",
-	# "HideSelectCheckboxes",       # "ShowSelectCheckboxes",
-	"HideSyncNotifications"         # "ShowSyncNotifications",
-	"HideRecentShortcuts",          # "ShowRecentShortcuts",
-	"SetExplorerThisPC",            # "SetExplorerQuickAccess",
-	"ShowThisPCOnDesktop",          # "HideThisPCFromDesktop",
-	# "ShowUserFolderOnDesktop",    # "HideUserFolderFromDesktop",
-	"HideDesktopFromThisPC",        # "ShowDesktopInThisPC",
-	# "HideDesktopFromExplorer",    # "ShowDesktopInExplorer",
-	"HideDocumentsFromThisPC",      # "ShowDocumentsInThisPC",
-	# "HideDocumentsFromExplorer",  # "ShowDocumentsInExplorer",
-	"HideDownloadsFromThisPC",      # "ShowDownloadsInThisPC",
-	# "HideDownloadsFromExplorer",  # "ShowDownloadsInExplorer",
-	"HideMusicFromThisPC",          # "ShowMusicInThisPC",
-	# "HideMusicFromExplorer",      # "ShowMusicInExplorer",
-	"HidePicturesFromThisPC",       # "ShowPicturesInThisPC",
-	# "HidePicturesFromExplorer",   # "ShowPicturesInExplorer",
-	"HideVideosFromThisPC",         # "ShowVideosInThisPC",
-	# "HideVideosFromExplorer",     # "ShowVideosInExplorer",
-	"Hide3DObjectsFromThisPC",      # "Show3DObjectsInThisPC",
-	# "Hide3DObjectsFromExplorer",  # "Show3DObjectsInExplorer",
-	# "DisableThumbnails",          # "EnableThumbnails",
-	"DisableThumbnailCache",        # "EnableThumbnailCache",
-	"DisableThumbsDBOnNetwork",     # "EnableThumbsDBOnNetwork",
+	"ShowKnownExtensions",		# "HideKnownExtensions",
+	"ShowHiddenFiles",		# "HideHiddenFiles",
+	"HideSyncNotifications"		# "ShowSyncNotifications",
+	"HideRecentShortcuts",		# "ShowRecentShortcuts",
+	"SetExplorerThisPC",		# "SetExplorerQuickAccess",
+	"ShowThisPCOnDesktop",		# "HideThisPCFromDesktop",
+	# "ShowUserFolderOnDesktop",	# "HideUserFolderFromDesktop",
+	"HideDesktopFromThisPC",	# "ShowDesktopInThisPC",
+	# "HideDesktopFromExplorer",	# "ShowDesktopInExplorer",
+	"HideDocumentsFromThisPC",	# "ShowDocumentsInThisPC",
+	# "HideDocumentsFromExplorer",	# "ShowDocumentsInExplorer",
+	"HideDownloadsFromThisPC",	# "ShowDownloadsInThisPC",
+	# "HideDownloadsFromExplorer",	# "ShowDownloadsInExplorer",
+	"HideMusicFromThisPC",		# "ShowMusicInThisPC",
+	# "HideMusicFromExplorer",	# "ShowMusicInExplorer",
+	"HidePicturesFromThisPC",	# "ShowPicturesInThisPC",
+	# "HidePicturesFromExplorer",	# "ShowPicturesInExplorer",
+	"HideVideosFromThisPC",		# "ShowVideosInThisPC",
+	# "HideVideosFromExplorer",	# "ShowVideosInExplorer",
+	"Hide3DObjectsFromThisPC",	# "Show3DObjectsInThisPC",
+	# "Hide3DObjectsFromExplorer",	# "Show3DObjectsInExplorer",
+	# "DisableThumbnails",		# "EnableThumbnails",
+	# "DisableThumbsDB",		# "EnableThumbsDB",
 
 	### Application Tweaks ###
-	"DisableOneDrive",              # "EnableOneDrive",
-	"UninstallOneDrive",            # "InstallOneDrive",
-	"UninstallMsftBloat",           # "InstallMsftBloat",
-	"UninstallThirdPartyBloat",     # "InstallThirdPartyBloat",
-	# "UninstallWindowsStore",      # "InstallWindowsStore",
-	"DisableXboxFeatures",          # "EnableXboxFeatures",
-	"DisableAdobeFlash",            # "EnableAdobeFlash",
-	"DisableEdgeShortcutCreation",  # "EnableEdgeShortcutCreation",
-	# "UninstallMediaPlayer",       # "InstallMediaPlayer",
-	# "UninstallInternetExplorer",  # "InstallInternetExplorer",
-	# "UninstallWorkFolders",       # "InstallWorkFolders",
-	# "InstallLinuxSubsystem",      # "UninstallLinuxSubsystem",
-	# "InstallHyperV",              # "UninstallHyperV",
-	"SetPhotoViewerAssociation",    # "UnsetPhotoViewerAssociation",
-	"AddPhotoViewerOpenWith",       # "RemovePhotoViewerOpenWith",
-	# "UninstallPDFPrinter",        # "InstallPDFPrinter",
-	"UninstallXPSPrinter",          # "InstallXPSPrinter",
-	"RemoveFaxPrinter",             # "AddFaxPrinter",
-	# "UninstallFaxAndScan",        # "InstallFaxAndScan",
+	"DisableOneDrive",		# "EnableOneDrive",
+	"UninstallOneDrive",		# "InstallOneDrive",
+	"UninstallMsftBloat",		# "InstallMsftBloat",
+	"UninstallThirdPartyBloat",	# "InstallThirdPartyBloat",
+	# "UninstallWindowsStore",	# "InstallWindowsStore",
+	"DisableXboxFeatures",		# "EnableXboxFeatures",
+	"DisableAdobeFlash",		# "EnableAdobeFlash",
+	"UninstallMediaPlayer",		# "InstallMediaPlayer",
+	# "UninstallInternetExplorer",	# "InstallInternetExplorer",
+	# "UninstallWorkFolders",	# "InstallWorkFolders",
+	"InstallLinuxSubsystem",	# "UninstallLinuxSubsystem",
+	# "InstallHyperV",		# "UninstallHyperV",
+	"SetPhotoViewerAssociation",	# "UnsetPhotoViewerAssociation",
+	"AddPhotoViewerOpenWith",	# "RemovePhotoViewerOpenWith",
+	# "UninstallPDFPrinter",	# "InstallPDFPrinter",
+	"UninstallXPSPrinter",		# "InstallXPSPrinter",
+	"RemoveFaxPrinter",		# "AddFaxPrinter",
 
 	### Server Specific Tweaks ###
-	# "HideServerManagerOnLogin",   # "ShowServerManagerOnLogin",
-	# "DisableShutdownTracker",     # "EnableShutdownTracker",
-	# "DisablePasswordPolicy",      # "EnablePasswordPolicy",
-	# "DisableCtrlAltDelLogin",     # "EnableCtrlAltDelLogin",
-	# "DisableIEEnhancedSecurity",  # "EnableIEEnhancedSecurity",
-	# "EnableAudio",                # "DisableAudio",
+	# "HideServerManagerOnLogin",	# "ShowServerManagerOnLogin",
+	# "DisableShutdownTracker",	# "EnableShutdownTracker",
+	# "DisablePasswordPolicy",	# "EnablePasswordPolicy",
+	# "DisableCtrlAltDelLogin",	# "EnableCtrlAltDelLogin",
+	# "DisableIEEnhancedSecurity",	# "EnableIEEnhancedSecurity",
+	# "EnableAudio",		# "DisableAudio",
 
 	### Unpinning ###
-	# "UnpinStartMenuTiles",
-	# "UnpinTaskbarIcons",
+	"UnpinStartMenuTiles",
+	"UnpinTaskbarIcons",
+
+	### Chocolatey ###
+	"InstallChocolatey",		# "UninstallChocolatey",
+	"AutoUpdateChocoPkgs",		# "DisableAutoUpdateChocoPkgs",	
+
+	### Requires Additional Files ###
+	"InstallAutohotkeyScript",
 
 	### Auxiliary Functions ###
 	"WaitForKey",
 	"Restart"
 )
+
+#######################################
+##### Chocolatey Install Packages #####
+#######################################
+### Remember to disable auto-update ###
+### for apps like GoogleChrome that ###
+###      update on their own.       ###
+#######################################
+### Or remove them from Chocolatey  ###
+###       later, like I do.         ###
+#######################################
+
+$chocopkgs = @(
+	# "f.lux",
+	"GoogleChrome",
+	"7zip",
+	"notepadplusplus",
+	# "vmware-tools",
+	"steam",
+	"ChocolateyGui",
+	"nircmd",
+	"unchecky",
+	# "kodi",
+	"discord",
+	"battle.net",
+	"autohotkey.install",
+	# "eventghost",
+	"adb",
+	"audacity",
+	# "blender",
+	"bulkrenameutility.install",
+	# "deluge",
+	# "gimp",
+	"handbrake.install",
+	"hashtab",
+	"InkScape",
+	"filezilla",
+	# "picasa",
+	"qbittorrent",
+	# "QuickPar",
+	# "skype",
+	# "tightvnc",
+	"universal-usb-installer",
+	"youtube-dl",
+	"zadig",
+	"win32diskimager.install",
+	"wget",
+	# "tor-browser",
+	# "win32-openssh", ##Depreciated
+	"javaruntime-platformspecific",
+	"fraps",
+	# "eraser",
+	"DotNet3.5",
+	"DotNet4.0",
+	"DotNet4.5",
+	"DotNet4.5.1",
+	"ffmpeg",
+	# "AndroidStudio",
+	"krita",
+	# "libreoffice",
+	# "minecraft",
+	"nano",
+	# "OpenHardwareMonitor",
+	# "retroarch",
+	# "Silverlight",
+	"vcredist2008",
+	"vcredist2015",
+	"firefox",
+	"CCleaner",
+	"cURL",
+	"winmerge"
+	# "dolphin",
+	"jdownloader -pre"
+	"vlc"
+)	### No Comma on the last line ###
 
 
 
@@ -2466,6 +2549,71 @@ Function UnpinTaskbarIcons {
 	Remove-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Taskband" -Name "FavoritesResolve" -ErrorAction SilentlyContinue
 }
 
+
+##########
+# Chocolatey Functions
+##########
+
+Function InstallChocolatey {
+	Write-Host "Installing Chocolatey Package Manager"
+	iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+	Write-Host "Configuring Chocolatey"
+	choco feature enable -n=allowEmptyChecksums
+	
+	Write-Host "Installing Chocolatey Packages"
+	$chocopkgs | ForEach { Write-Host "Installing "$_; choco install $_ -y }
+}
+
+Function UninstallChocolatey {
+	Remove-Item -Recurse -Force "$env:ChocolateyInstall"
+	[System.Text.RegularExpressions.Regex]::Replace( ` 
+	[Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment').GetValue('PATH', '',  `
+	[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames).ToString(),  `
+	[System.Text.RegularExpressions.Regex]::Escape("$env:ChocolateyInstall\bin") + '(?>;)?', '', `
+	[System.Text.RegularExpressions.RegexOptions]::IgnoreCase) | `
+	%{[System.Environment]::SetEnvironmentVariable('PATH', $_, 'User')}
+	[System.Text.RegularExpressions.Regex]::Replace( `
+	[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey('SYSTEM\CurrentControlSet\Control\Session Manager\Environment\').GetValue('PATH', '', `
+	[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames).ToString(),  `
+	[System.Text.RegularExpressions.Regex]::Escape("$env:ChocolateyInstall\bin") + '(?>;)?', '', `
+	[System.Text.RegularExpressions.RegexOptions]::IgnoreCase) | `
+	%{[System.Environment]::SetEnvironmentVariable('PATH', $_, 'Machine')}
+}
+
+Function AutoUpdateChocoPkgs {
+	Write-Host "Configuring Chocolatey Update Schedule..."
+	$service = New-Object -com Schedule.Service
+	$service.Connect()
+	$task = $service.NewTask(0)
+	$task.Settings.DisallowStartIfOnBatteries = $true
+	$task.Settings.RunOnlyIfNetworkAvailable = $true
+	$task.Settings.StopIfGoingOnBatteries = $false
+	$trigger = $task.Triggers.Create(6)
+	$action = $task.Actions.Create(0)
+	$action.Path = "cup"
+	$action.Arguments = "all -y"
+	$service.GetFolder("\").RegisterTaskDefinition("Update Chocolatey Packages", $task, 6, "NT AUTHORITY\SYSTEM", $null, 4) | Out-Null
+}
+
+Function DisableAutoUpdateChocoPkgs {
+	Unregister-ScheduledTask -TaskName "Update Chocolatey Packages" -Confirm:$false -ErrorAction SilentlyContinue
+}
+
+
+##########
+# Additional Files Required
+##########
+
+Function InstallAHKScript {
+	Write-Host "Copying Base.ahk"
+	Copy-Item "Base.ahk" %appdata%"\AHK\Install.ahk"
+	%appdata%"\AHK\Install.ahk"
+}
+
+
+Function PromptForWinAeroTweaker {
+	(New-Object -Com Shell.Application).Open("http://winaero.com/comment.php?comment.news.1836")
+}
 
 
 ##########
